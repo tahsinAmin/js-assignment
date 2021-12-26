@@ -16,7 +16,15 @@
   </head>
   <body>
     <form action="">
-      <div class="mx-auto flex flex-col sm:flex-row space-y-2 sm:space-x-2">
+      <div
+        class="
+          mx-auto
+          flex flex-col
+          sm:flex-row
+          space-y-2
+          sm:space-y-0 sm:space-x-2
+        "
+      >
         <div class="date_in bg-white rounded-lg border border-blue-400">
           <input
             type="date"
@@ -25,7 +33,6 @@
             required="Required"
             class="form-control"
             name="txtDate1"
-            placeholder="Select suitable date"
           />
         </div>
         <div class="date_out bg-white rounded-lg border border-blue-400">
@@ -36,7 +43,6 @@
             required="Required"
             class="form-control"
             name="txtDate2"
-            placeholder="Select suitable date"
           />
         </div>
         <input type="button" value="Search" onclick="show_alert()" />

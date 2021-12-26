@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=1, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -12,43 +12,63 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <!-- <style>
-      input:focus,
-      textarea:focus,
-      select:focus {
-        outline: none;
-      }
-    </style> -->
-    <title>Guests</title>
+    <title>Date</title>
   </head>
-  <body class="h-screen">
-    <div class="flex">
-      <div class="flex mx-auto">
-        <div class="mx-auto flex flex-col sm:flex-row space-y-2 sm:space-x-2">
-          <div
-            class="guests_add bg-white rounded-lg px-2 flex items-center"
-            onclick="popup_guest()"
-          >
-            <i class="fas fa-users text-gray-400 bg-white"></i>
-            <input
-              type="number"
-              class="rounded-lg text-black w-[70px] pl-2"
-              placeholder="Guests"
-              value=""
-              disabled=""
-              id="guest_val"
-            />
-            <i class="fas fa-sort-down text-gray-400 bg-white pb-1"></i>
-          </div>
+  <body>
+    <form action="">
+      <div
+        class="
+          mx-auto
+          flex flex-col
+          sm:flex-row
+          space-y-2
+          sm:space-y-0 sm:space-x-2
+        "
+      >
+        <!-- Date -->
+        <div class="date_in bg-white rounded-lg border border-blue-400">
+          <input
+            type="date"
+            id="txtDate1"
+            class="px-1 rounded-lg text-black"
+            required="Required"
+            class="form-control"
+            name="txtDate1"
+          />
         </div>
-        <input
-          type="button"
-          value="Search"
-          onclick="show_alert()"
-          class="bg-gray"
-        />
+        <div class="date_out bg-white rounded-lg border border-blue-400">
+          <input
+            type="date"
+            id="txtDate2"
+            class="px-1 rounded-lg text-black"
+            required="Required"
+            class="form-control"
+            name="txtDate2"
+          />
+        </div>
+
+        <!-- Guests -->
+        <div
+          class="guests_add bg-white rounded-lg px-2 flex items-center"
+          onclick="popup_guest()"
+        >
+          <i class="fas fa-users text-gray-400 bg-white"></i>
+          <input
+            type="number"
+            class="rounded-lg text-black w-[70px] pl-2"
+            placeholder="Guests"
+            value=""
+            disabled=""
+            id="guest_val"
+          />
+          <i class="fas fa-sort-down text-gray-400 bg-white pb-1"></i>
+        </div>
+
+        <input type="button" value="Search" onclick="show_alert()" />
       </div>
-    </div>
+    </form>
+
+    <!-- Guests Pop Up-->
     <div
       class="pop_up_guest hidden flex flex-col bg-white p-4"
       id="set_guest_num"
@@ -108,6 +128,12 @@
     </div>
 
     <script>
+      let check_in = new Date().toISOString().split("T")[0];
+      document.getElementsByName("txtDate1")[0].setAttribute("min", check_in);
+
+      let check_out = new Date().toISOString().split("T")[0];
+      document.getElementsByName("txtDate2")[0].setAttribute("min", check_out);
+
       let guest_size = 0;
       let set_guest_num = document.getElementById("set_guest_num");
 
@@ -139,7 +165,25 @@
         if (guest_size != 0) {
           guest_size = no_of_guests;
         }
-        alert("Guest(s): " + guest_size + "\n");
+
+        let check_in = document.getElementById("txtDate1").value;
+        let check_out = document.getElementById("txtDate2").value;
+
+        if (check_in < check_out) {
+          alert(
+            "Search: ~ \n" +
+              "Checkin: " +
+              check_in +
+              "\nCheckout: " +
+              check_out +
+              "\nGuest: " +
+              guest_size +
+              "\n" +
+              "Price range: ~ \n"
+          );
+        } else {
+          alert("Sorry, we don't time travel :)");
+        }
       }
     </script>
   </body>

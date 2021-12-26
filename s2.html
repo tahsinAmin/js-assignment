@@ -27,8 +27,8 @@
         border-radius: 3px;
       }
       #slider::-webkit-slider-thumb {
-        /* -webkit-appearance: none; */
-        width: -48px;
+        -webkit-appearance: none;
+        width: 48px;
         height: 48px;
         cursor: pointer;
         z-index: 3;
@@ -55,7 +55,8 @@
       }
 
       #selectValue {
-        width: 48px;
+        width: auto;
+        padding: 2px 4px;
         height: 40px;
         position: absolute;
         top: 0;
@@ -72,28 +73,30 @@
         background: #ffd200;
         border-radius: 3px;
         position: absolute;
-        top: 0;
+        top: 8px;
         left: 0;
       }
     </style>
   </head>
   <body>
     <div class="main">
-      <input type="range" min="0" max="1279" value="50" id="slider" />
+      <input type="range" min="0" max="128749" value="50" id="slider" />
       <div id="selector">
         <div class="selectBtn"></div>
-        <div id="selectValue"></div>
+        <div id="selectValue">64374</div>
       </div>
       <div id="progressBar"></div>
     </div>
     <script>
       let slider = document.getElementById("slider");
       let selector = document.getElementById("selector");
+      let selectValue = document.getElementById("selectValue");
       let progressBar = document.getElementById("progressBar");
 
       slider.oninput = function () {
-        selector.style.left = (this.value / 1279) * 100 + "%";
-        progressBar.style.width = (this.value / 1279) * 100 + "%";
+        selector.style.left = (this.value / 128749) * 100 + "%";
+        progressBar.style.width = (this.value / 128749) * 100 + "%";
+        selectValue.innerHTML = slider.value;
       };
     </script>
   </body>
