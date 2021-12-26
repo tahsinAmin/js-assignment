@@ -1,4 +1,4 @@
-# Static HTML page for HTML-CSS Assignment
+# JS Assignment
 
 ## 1. Searchbar
 
@@ -10,13 +10,25 @@
 - [x] Unable to choose invalid previous date in check in & check out
 - [x] checkout date should be greater than check in date
 
-## 2. Range niput for Price Range
+## 3. Guests (Range input for Price Range)
+
+### Todos
+
+- [x] Showing value in the disabled input.
+
+## 4. Price Range (Multiple input Range Slider)
 
 ### Todos
 
 - [ ] Multi Range Slider
 - [ ] Showing the tooltip above
 - [ ] Showing the text of the price
+
+## 5. Heat Check (If possible)
+
+- [ ] Make sure if guests div don't pop up if price range is showing.
+- [ ] Make it responsive
+- [ ] Make eveything else disable or have an overlay when one of the divs pop up
 
 ## About Us
 

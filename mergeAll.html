@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=1, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      input:focus,
+      textarea:focus,
+      select:focus {
+        outline: none;
+      }
+    </style>
+    <title>Guests</title>
+  </head>
+  <body class="h-screen">
+    <main class="h-[425px]">
+      <div class="bg-black flex">
+        <div class="flex mx-auto">
+          <div class="mx-auto flex flex-col sm:flex-row space-y-2 sm:space-x-2">
+            <div class="search flex items-center bg-white rounded-lg">
+              <i class="fas fa-search text-gray-400 bg-white"></i>
+              <input
+                type="text"
+                placeholder="Search ..."
+                class="px-1 rounded-lg text-black"
+              />
+            </div>
+            <div class="date_in bg-white rounded-lg">
+              <!-- <i class="fas fa-calendar pl-4 text-gray-400 bg-white"></i> -->
+              <input
+                type="date"
+                id="txtDate1"
+                class="px-1 rounded-lg text-black"
+                required="Required"
+                class="form-control"
+                name="txtDate1"
+                placeholder="Select suitable date"
+              />
+            </div>
+            <div class="date_out bg-white rounded-lg">
+              <!-- <i class="fas fa-calendar pl-4 text-gray-400 bg-white"></i> -->
+              <!-- <input type="date" class="px-1 rounded-lg text-black" /> -->
+              <input
+                type="date"
+                id="txtDate2"
+                class="px-1 rounded-lg text-black"
+                required="Required"
+                class="form-control"
+                name="txtDate2"
+                placeholder="Select suitable date"
+              />
+            </div>
+            <div
+              class="guests_add bg-white rounded-lg px-2 flex items-center"
+              onclick="popup_guest()"
+            >
+              <i class="fas fa-users text-gray-400 bg-white"></i>
+              <input
+                type="number"
+                class="rounded-lg text-black w-[70px] pl-2"
+                placeholder="Guests"
+                value=""
+                disabled=""
+                id="guest_val"
+              />
+              <i class="fas fa-sort-down text-gray-400 bg-white pb-1"></i>
+            </div>
+            <div
+              class="price_range_add bg-white rounded-lg px-2 flex items-center"
+              onclick="popup_range()"
+            >
+              <input
+                type="number"
+                class="rounded-lg text-black w-[110px] pl-2"
+                placeholder="Price Range"
+                value=""
+                disabled=""
+                id="price_range_val"
+              />
+              <i class="fas fa-sort-down text-gray-400 bg-white pb-1"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="pop_up_guest hidden flex flex-col bg-white p-4"
+        id="set_guest_num"
+      >
+        <div class="flex items-center space-x-3">
+          <p class="text-3xl">Guests</p>
+          <button
+            class="
+              px-5
+              py-2
+              text-center
+              rounded-full
+              border-2 border-[#00CD92]
+              text-[#00CD92] text-3xl
+              font-black
+              focus:ring focus:ring-[#00CD92]
+              hover:bg-[#00CD92] hover:text-white
+            "
+            onclick="decrement()"
+          >
+            -
+          </button>
+          <p id="guest_size" class="text-3xl">4</p>
+          <button
+            class="
+              px-4
+              py-2
+              text-center
+              rounded-full
+              border-2 border-[#00CD92]
+              text-[#00CD92] text-3xl
+              font-black
+              focus:ring focus:ring-[#00CD92]
+              hover:bg-[#00CD92] hover:text-white
+            "
+            onclick="increment()"
+          >
+            +
+          </button>
+        </div>
+        <div class="add_buttton flex justify-end">
+          <button
+            class="
+              bg-[#00CD92]
+              text-white
+              uppercase
+              shadow-lg
+              py-3
+              px-6
+              rounded-lg
+            "
+            onclick="on_add_guest()"
+          >
+            ADD
+          </button>
+        </div>
+      </div>
+      <div
+        class="pop_up_price_range flex flex-col bg-white p-4 hidden"
+        id="set_price_num"
+      >
+        <div class="flex items-center space-x-3">
+          <p class="text-3xl">Price Range</p>
+          <button
+            class="
+              px-5
+              py-2
+              text-center
+              rounded-full
+              border-2 border-[#00CD92]
+              text-[#00CD92] text-3xl
+              font-black
+              focus:ring focus:ring-[#00CD92]
+              hover:bg-[#00CD92] hover:text-white
+            "
+            onclick="decrement()"
+          >
+            -
+          </button>
+          <p id="guest_size" class="text-3xl">0</p>
+          <button
+            class="
+              px-4
+              py-2
+              text-center
+              rounded-full
+              border-2 border-[#00CD92]
+              text-[#00CD92] text-3xl
+              font-black
+              focus:ring focus:ring-[#00CD92]
+              hover:bg-[#00CD92] hover:text-white
+            "
+            onclick="increment()"
+          >
+            +
+          </button>
+        </div>
+        <div class="add_buttton flex justify-end">
+          <button
+            class="
+              bg-[#00CD92]
+              text-white
+              uppercase
+              shadow-lg
+              py-3
+              px-6
+              rounded-lg
+            "
+            onclick="on_add_price()"
+          >
+            ADD
+          </button>
+        </div>
+      </div>
+    </main>
+    <script>
+      let guest_size = 0;
+      let price_range = 0;
+      let set_guest_num = document.getElementById("set_guest_num");
+      let set_price_num = document.getElementById("set_price_num");
+
+      let check_in = new Date().toISOString().split("T")[0];
+      document.getElementsByName("txtDate1")[0].setAttribute("min", check_in);
+
+      let check_out = new Date().toISOString().split("T")[0];
+      document.getElementsByName("txtDate2")[0].setAttribute("min", check_out);
+
+      function decrement() {
+        if (guest_size == 0) {
+          document.getElementById("guest_size").innerText = guest_size;
+        } else {
+          guest_size -= 1;
+          document.getElementById("guest_size").innerText = guest_size;
+        }
+      }
+
+      function increment() {
+        guest_size += 1;
+        document.getElementById("guest_size").innerText = guest_size;
+      }
+
+      function on_add_guest() {
+        // console.log(guest_size);
+        let guest_val = document.getElementById("guest_val");
+        guest_val.value = guest_size;
+        set_guest_num.classList.toggle("hidden");
+      }
+
+      function on_add_price() {
+        console.log(price_range);
+        let price_range_val = document.getElementById("price_range_val");
+        price_range_val.value = price_range;
+        set_price_num.classList.toggle("hidden");
+      }
+
+      // function pick_date() {
+      //   {
+      //     return new Date().toISOString().split("T")[0];
+      //   }
+      // }
+      function popup_guest() {
+        set_guest_num.classList.toggle("hidden");
+      }
+      function popup_range() {
+        set_price_num.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>
