@@ -1,5 +1,15 @@
 # Static HTML page for HTML-CSS Assignment
 
+## 1. Searchbar
+
+## 2. Date Picker for Calendar
+
+### Todos
+
+- [ ] Hoteldatepicker
+- [x] Unable to choose invalid previous date in check in & check out
+- [ ] checkout date should be greater than check in date
+
 ## About Us
 
 - Find the Best Prices on Vacation Rentals, RBO Homes, Cottages, Cabins, Condos & More. Book and Stay in the World's Top Destinations with Rent By Owner™
@@ -18,6 +28,7 @@
 - when using html calendar, they give a default calendar icon, so I need to remove mine.
 
 ## Things I have learned:
+
 - Giving Text shadow
 
 ## Future tasks if Possibility for Continuation:
