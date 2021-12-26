@@ -10,13 +10,17 @@
 - [x] Unable to choose invalid previous date in check in & check out
 - [ ] checkout date should be greater than check in date
 
+## 2. Range niput for Price Range
+
+### Todos
+
+- [ ] Multi Range Slider
+- [ ] Showing the tooltip above
+- [ ] Showing the text of the price
+
 ## About Us
 
 - Find the Best Prices on Vacation Rentals, RBO Homes, Cottages, Cabins, Condos & More. Book and Stay in the World's Top Destinations with Rent By Owner™
-
-## Video
-
-- [Video](https://youtu.be/yh6Zcd6vU34)
 
 ## Tools Used
 
