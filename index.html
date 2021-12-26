@@ -4,13 +4,1272 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>JS Assignment</title>
   </head>
   <body>
-    <h1>Links</h1>
-    <a href="/search.html">Search</a>
-    <a href="/date.html">Date</a>
-    <a href="/guests.html">Guests</a>
-    <a href="/slider.html">Price Range</a>
+    <nav
+      class="bg-blue-900 text-white flex justify-between items-center px-4 py-4"
+    >
+      <div class="logo">
+        <img
+          class="max-w-full nav-row-logo"
+          loading="lazy"
+          src="img/header_logo.svg"
+          alt="rentByOwner"
+          width="182"
+          height="26"
+        />
+      </div>
+      <div class="others hidden sm:block flex space-x-4">
+        <a href="" class="tracking-wider font-regular text-lg"
+          >Rentals
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <a href="" class="tracking-wider font-regular text-lg"
+          >Nearby <i class="fas fa-chevron-down"></i
+        ></a>
+        <a href="" class="tracking-wider font-regular text-lg"
+          >Destinations <i class="fas fa-chevron-down"></i
+        ></a>
+        <button
+          class="
+            bg-[#00CD92]
+            py-3
+            p-4
+            rounded-xl
+            font-regular
+            text-white text-lg
+          "
+        >
+          Find a Vacation Rental
+        </button>
+      </div>
+      <svg
+        class="block h-6 w-6 sm:hidden"
+        xmlns="https:www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M4
+        6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </nav>
+    <main class="max-w-7xl mx-auto">
+      <div
+        class="
+          hero
+          relative
+          mt-2
+          mx-4
+          sm:mx-0flex
+          h-[645px]
+          bg-[url('img/hero.jpg')] bg-cover bg-center
+        "
+      >
+        <div class="m-auto">
+          <h3 class="text-2xl font-normal mb-4">JOURNEYS</h3>
+          <h1 class="text-4xl sm:text-5xl font-medium mb-4">
+            Stories From Around The World
+          </h1>
+          <form class="m-auto" action="">
+            <div
+              class="
+                mx-auto
+                flex flex-col
+                sm:flex-row
+                space-y-2
+                sm:space-y-0 sm:space-x-2
+              "
+            >
+              <!-- Search -->
+              <div class="search flex items-center bg-white px-2">
+                <i class="fas fa-search text-gray-400 bg-white"></i>
+                <input
+                  type="text"
+                  placeholder="Search ..."
+                  class="px-1 rounded-lg text-black"
+                  id="search_val"
+                />
+              </div>
+
+              <!-- Date -->
+              <div
+                class="
+                  flex
+                  items-center
+                  justify-center
+                  date_in
+                  bg-white
+                  border border-blue-400
+                "
+              >
+                <input
+                  type="date"
+                  id="txtDate1"
+                  class="px-1 text-black"
+                  required="Required"
+                  class="form-control"
+                  name="txtDate1"
+                />
+              </div>
+              <div
+                class="
+                  flex
+                  items-center
+                  justify-centerdate_out
+                  bg-white
+                  border border-blue-400
+                "
+              >
+                <input
+                  type="date"
+                  id="txtDate2"
+                  class="px-1 text-black"
+                  required="Required"
+                  class="form-control"
+                  name="txtDate2"
+                />
+              </div>
+
+              <!-- Guests -->
+              <div
+                class="guests_add bg-white px-2 flex items-center"
+                onclick="popup_guest()"
+              >
+                <i class="fas fa-users text-gray-400 bg-white"></i>
+                <input
+                  type="number"
+                  class="text-black w-[70px] pl-2"
+                  placeholder="Guests"
+                  value=""
+                  disabled=""
+                  id="guest_val"
+                />
+                <i class="fas fa-sort-down text-gray-400 bg-white pb-1"></i>
+              </div>
+
+              <!-- Price Range -->
+              <div
+                class="
+                  price_range_add
+                  bg-white
+                  rounded-lg
+                  px-2
+                  flex
+                  items-center
+                "
+                onclick="popup_range()"
+              >
+                <input
+                  type="text"
+                  class="text-black pl-2"
+                  placeholder="Price Range"
+                  value=""
+                  disabled=""
+                  id="price_val"
+                />
+                <i class="fas fa-sort-down text-gray-400 bg-white pb-1"></i>
+              </div>
+
+              <input
+                type="button"
+                value="Search"
+                class="bg-white border p-2"
+                onclick="show_alert()"
+              />
+            </div>
+          </form>
+
+          <!-- Guests Pop Up-->
+          <div
+            class="pop_up_guest hidden flex flex-col bg-white p-4"
+            id="set_guest_num"
+          >
+            <div class="flex items-center space-x-3">
+              <p class="text-3xl">Guests</p>
+              <button
+                class="
+                  px-5
+                  py-2
+                  text-center
+                  rounded-full
+                  border-2 border-[#00CD92]
+                  text-[#00CD92] text-3xl
+                  font-black
+                  focus:ring focus:ring-[#00CD92]
+                  hover:bg-[#00CD92] hover:text-white
+                "
+                onclick="decrement()"
+              >
+                -
+              </button>
+              <p id="guest_size" class="text-3xl">0</p>
+              <button
+                class="
+                  px-4
+                  py-2
+                  text-center
+                  rounded-full
+                  border-2 border-[#00CD92]
+                  text-[#00CD92] text-3xl
+                  font-black
+                  focus:ring focus:ring-[#00CD92]
+                  hover:bg-[#00CD92] hover:text-white
+                "
+                onclick="increment()"
+              >
+                +
+              </button>
+            </div>
+            <div class="add_buttton flex justify-end">
+              <button
+                class="
+                  bg-[#00CD92]
+                  text-white
+                  uppercase
+                  shadow-lg
+                  py-3
+                  px-6
+                  rounded-lg
+                "
+                onclick="on_add_guest()"
+              >
+                ADD
+              </button>
+            </div>
+          </div>
+
+          <!-- Price Pop Up -->
+          <div
+            class="pop_up_price_range hidden wrapper flex flex-col bg-white p-4"
+            id="set_price_num"
+          >
+            <div>
+              <p class="text-2xl font-semibold mb-4">
+                Price Range: ৳
+                <span class="font-medium text-blue-500" id="show_range_val_1">
+                  0
+                </span>
+                <span> &dash; </span>
+                ৳
+                <span class="font-medium text-blue-500" id="show_range_val_2"
+                  >100</span
+                >
+                + per night
+              </p>
+              <div class="values">
+                <span id="range1"> 0 </span>
+                <span> &dash; </span>
+                <span id="range2"> 128749 </span>
+              </div>
+              <div class="cont">
+                <div class="slider-track bg-blue-300"></div>
+                <input
+                  type="range"
+                  min="0"
+                  max="128749"
+                  value="0"
+                  id="slider-1"
+                  oninput="slideOne()"
+                />
+                <div id="selector-1">
+                  <!-- <div class="selectBtn-1"></div> -->
+                  <div id="selectValue-1">0</div>
+                </div>
+
+                <input
+                  type="range"
+                  min="0"
+                  max="128749"
+                  value="128749"
+                  id="slider-2"
+                  oninput="slideTwo()"
+                />
+                <!-- <div class="bain">
+            <div class="selector">
+              <div class="selectBtn"></div>
+              <div id="selectValue"></div>
+            </div>
+          </div> -->
+              </div>
+            </div>
+            <div class="add_buttton flex justify-end">
+              <button
+                class="
+                  bg-[#00CD92]
+                  text-white
+                  uppercase
+                  shadow-lg
+                  py-3
+                  px-6
+                  rounded-lg
+                "
+                onclick="on_add_price()"
+              >
+                ADD
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 sm:flex sm:space-x-6 px-4 sm:px-0">
+        <div
+          class="
+            my-8
+            sm:my-0 sm:w-3/12
+            flex flex-col
+            justify-between
+            text-white
+            font-medium
+            bg-[url('img/sedona.jpg')] bg-cover bg-center
+            p-4
+            h-60
+            sm:h-72
+            rounded-lg
+          "
+        >
+          <p class="text-3xl" style="text-shadow: 1px 1px #000">
+            The Best Sedona Hiking Trails
+          </p>
+          <small class="text-md">By Staff Writer</small>
+        </div>
+        <div
+          class="
+            my-8
+            sm:my-0 sm:w-6/12
+            flex flex-col
+            justify-between
+            text-white
+            font-medium
+            bg-gray-300 bg-[url('img/tybee.jpg')] bg-cover bg-center
+            p-4
+            h-60
+            sm:h-72
+            rounded-lg
+          "
+        >
+          <p class="text-3xl" style="text-shadow: 1px 1px #000">
+            Tybee Island Fun Things To Do While On Vacation
+          </p>
+          <small class="text-md">By Staff Writer</small>
+        </div>
+        <div
+          class="
+            rounded-lg
+            my-8
+            sm:my-0 sm:w-3/12
+            bg-blue-900
+            p-4
+            flex flex-col
+            justify-between
+            font-medium
+            h-44
+            sm:h-72
+          "
+        >
+          <p class="text-[#00CD92] text-3xl font-semibold">
+            The night life and the food.
+          </p>
+          <small class="text-md font-black text-[#00CD92] underline"
+            >Explore Liberia</small
+          >
+        </div>
+      </div>
+
+      <div class="mt-4 sm:flex sm:space-x-6">
+        <div
+          class="
+            mb-4
+            sm:mb-0 sm:w-9/12 sm:flex sm:flex-col
+            space-y-16
+            sm:space-y-4
+          "
+        >
+          <div
+            class="
+              sm:flex sm:space-x-6
+              mb-4
+              rounded-lg
+              transform
+              transition
+              hover:scale-105
+              duration-200
+              ease-out
+              pr-6
+            "
+          >
+            <div
+              class="
+                img
+                w-10/12
+                mx-auto
+                sm:w-4/12
+                h-56
+                sm:h-64
+                flex
+                items-center
+                justify-center
+                bg-blue-900
+                rounded-xl
+              "
+            >
+              <img
+                class="w-4/5"
+                loading="lazy"
+                src="img/header_logo.svg"
+                alt="rentByOwner"
+                width="182"
+                height="26"
+              />
+            </div>
+            <div
+              class="content w-10/12 sm:w-8/12 mx-auto flex flex-col space-y-6"
+            >
+              <header
+                class="
+                  text-2xl
+                  mt-4
+                  sm:mt-0 sm:text-5xl
+                  font-medium
+                  text-blue-900
+                "
+              >
+                The Best Beach Towns in Florida you Need to visit
+              </header>
+              <p class="text-gray-500">
+                Written by
+                <span class="underline text-blue-900">staff writer</span>
+              </p>
+              <p class="text-gray-500 hidden sm:block">
+                Let's start with the big picture.Planning a trip top flotrrida?>
+                Here are the best branches wherer you shoulkd spn\end the week
+                (or the month) on the beach with your...
+              </p>
+            </div>
+          </div>
+          <div
+            class="
+              sm:flex sm:space-x-6
+              mb-4
+              rounded-lg
+              transform
+              transition
+              hover:scale-105
+              duration-200
+              ease-out
+              pr-6
+            "
+          >
+            <div
+              class="
+                img
+                w-10/12
+                mx-auto
+                sm:w-4/12
+                h-56
+                sm:h-64
+                flex
+                items-center
+                justify-center
+                rounded-xl
+                bg-[url('img/sarasota.jpg')] bg-cover bg-center
+              "
+            ></div>
+            <div
+              class="content w-10/12 sm:w-8/12 mx-auto flex flex-col space-y-6"
+            >
+              <header
+                class="
+                  text-2xl
+                  mt-4
+                  sm:mt-0 sm:text-5xl
+                  font-medium
+                  text-blue-900
+                "
+              >
+                The Best Sarasota Area Beaches To Explore
+              </header>
+              <p class="text-gray-500">
+                Written by
+                <span class="underline text-blue-900">staff writer</span>
+              </p>
+              <p class="text-gray-500 hidden sm:block">
+                Sarasota County has some of the best beaches in all florida and
+                the gulf of Mexico. So, whther you're looking for a more
+                chilled-out white sand beach to do...
+              </p>
+            </div>
+          </div>
+          <div
+            class="
+              pagination
+              flex
+              space-x-3
+              font-medium
+              text-sm
+              px-4
+              sm:px-0
+              mt-16
+            "
+          >
+            <div class="active border bg-blue-900 text-white px-3 py-1">1</div>
+            <div class="border text-blue-900 px-3 py-1">2</div>
+            <div class="border text-blue-900 px-3 py-1">...</div>
+            <div class="border text-blue-900 px-3 py-1">38</div>
+            <div class="border text-blue-900 px-2 py-1">LAST</div>
+          </div>
+          <div
+            class="
+              typeeIs
+              py-4
+              pr-4
+              pl-4
+              bg-blue-900
+              flex
+              justify-between
+              mx-4
+              sm:mx-0
+            "
+          >
+            <div class="flex flex-col justify-between space-x-6 space-y-16">
+              <div class="flex p-1 sm:p-4">
+                <i
+                  class="fas fa-quote-left text-blue-400 h-10 w-4 scale-105"
+                ></i>
+                <header class="text-[#00CD92] text-3xl sm:text-4xl font-medium">
+                  <!-- Tybee is replete with everythiong that you need to have the
+      perfect vacation. -->
+                  San Diego is a city that delivers a good time.
+                </header>
+              </div>
+              <a
+                href="#"
+                class="
+                  things_to_do
+                  text-[#00CD92]
+                  underline
+                  text-2xl
+                  pb-2
+                  sm:pb-0
+                "
+              >
+                Things To Do in San Diego
+              </a>
+            </div>
+            <div class="flex flex-col justify-end">
+              <i class="fas fa-arrow-right text-white text-4xl"></i>
+            </div>
+          </div>
+        </div>
+        <aside
+          class="
+            mb-4
+            mt-10
+            sm:mt-0 sm:mb-0 sm:w-3/12
+            flex flex-col
+            space-y-3
+            pl-0
+            text-xl
+            sm:pl-2
+            mx-5
+            sm:mx-0
+          "
+        >
+          <header class="font-light uppercase">catagories</header>
+          <ul class="flex flex-col space-y-2">
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Alabama</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Arizona</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Beaches</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>California</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Florida</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Georgia</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Hawaii</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92]">
+              <p>Hiking</p>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Maine</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Maryland</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Massachusetts</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92]">
+              <p>Museums</p>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Oregon</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92]">
+              <p>Parks</p>
+            </li>
+            <li class="text-[#00CD92]">
+              <p>Place To Stay</p>
+            </li>
+            <li class="text-[#00CD92]">
+              <p>Restaurants</p>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>South Carolina</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Tennessee</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92] flex justify-between">
+              <p>Texas</p>
+              <span
+                class="
+                  h-6
+                  w-6
+                  border border-[#00CD92] border-2
+                  rounded-full
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <i class="fas fa-chevron-down fa-xs"></i>
+              </span>
+            </li>
+            <li class="text-[#00CD92]">
+              <p>Things To do</p>
+            </li>
+            <li class="text-[#00CD92]">
+              <p>Tours</p>
+            </li>
+            <li class="text-[#00CD92]">
+              <p>Uncategorized</p>
+            </li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="mt-12 px-4 sm:px-0">
+        <header class="font-medium text-xl sm:text-2xl text-gray-800">
+          Follow The Adventures
+        </header>
+        <div
+          class="
+            mt-6
+            grid grid-cols-1
+            sm:grid-rows-2 sm:grid-flow-col sm:grid-cols-2
+            gap-4
+          "
+        >
+          <div
+            class="
+              sm:row-span-2 sm:col-span-1
+              h-96
+              sm:h-auto
+              bg-gray-300 bg-[url('img/india2.jpg')] bg-cover bg-center
+              text-white text-2xl
+              font-light
+              p-6
+              hover:scale-105
+              transform
+              transition
+              duration-300
+              ease-out
+            "
+          >
+            India
+          </div>
+          <div
+            class="
+              sm:row-span-1 sm:col-span-2
+              h-96
+              sm:h-auto
+              bg-gray-300 bg-[url('img/lioncity.jpg')] bg-cover bg-center
+              text-white text-2xl
+              font-light
+              p-6
+              hover:scale-105
+              transform
+              transition
+              duration-300
+              ease-out
+            "
+          >
+            Singapore
+          </div>
+          <div
+            class="
+              sm:row-span-1 sm:col-span-1
+              h-96
+              sm:h-auto sm:w-auto
+              bg-gray-300 bg-[url('img/indiagate.jpg')] bg-cover bg-center
+              text-white text-2xl
+              font-light
+              p-6
+              hover:scale-105
+              transform
+              transition
+              duration-300
+              ease-out
+            "
+          >
+            Pakistan
+          </div>
+          <div
+            class="
+              row-span-1
+              col-span-1
+              h-96
+              sm:h-auto sm:w-auto
+              bg-gray-300 bg-[url('img/china1.jpg')] bg-cover bg-left
+              text-white text-2xl
+              font-light
+              p-6
+              hover:scale-105
+              transform
+              transition
+              duration-300
+              ease-out
+            "
+          >
+            China
+          </div>
+        </div>
+        <div
+          class="
+            follow_us
+            text-[#00CD92]
+            my-8
+            text-lg text-center
+            sm:text-right
+            font-medium
+          "
+        >
+          FOLLOW US ON INSTAGRAM
+        </div>
+      </div>
+    </main>
+    <footer class="bg-indigo-100 px-4 pt-24 mt-4">
+      <div
+        class="
+          grid grid-cols-1
+          sm:grid-cols-4 sm:gap-x-56
+          gap-y-9
+          sm:w-8/12 sm:mx-auto
+          mb-2
+        "
+      >
+        <div
+          class="
+            find
+            col-span-2
+            text-center
+            sm:text-left
+            flex flex-col
+            sm:block
+            space-y-3
+          "
+        >
+          <header class="font-medium text-2xl">Find a Place to Stay</header>
+          <ul
+            class="
+              text-gray-600
+              font-regular
+              grid grid-cols-1
+              text-xl
+              sm:grid-cols-2
+              gap-x-44 gap-y-3
+            "
+          >
+            <li>All RBO Homes</li>
+            <li>Vacation rentals</li>
+            <li>Cabins</li>
+            <li>Condos</li>
+            <li>Cottages</li>
+            <li>Ski Chalets</li>
+            <li>Timeshares</li>
+            <li>RV Rentals</li>
+            <li>Boat Rentals</li>
+            <li>Villas</li>
+            <li>Hotels</li>
+            <li>Resorts</li>
+          </ul>
+        </div>
+        <div
+          class="
+            other_footer_items
+            col-span-2
+            grid grid-cols-1
+            sm:grid-cols-2 sm:gap-x-24
+            gap-y-9
+          "
+        >
+          <div
+            class="
+              about
+              text-center
+              sm:text-left
+              flex flex-col
+              sm:block
+              space-y-3
+            "
+          >
+            <header class="font-medium text-2xl">About Us</header>
+            <ul
+              class="
+                text-gray-600
+                font-regular
+                grid grid-cols-1
+                text-xl
+                gap-y-3
+              "
+            >
+              <li>About rent By Owner</li>
+              <li>Our Travel Journal</li>
+            </ul>
+          </div>
+          <div
+            class="
+              explore
+              text-center
+              sm:text-left
+              flex flex-col
+              sm:block
+              space-y-3
+            "
+          >
+            <header class="font-medium text-2xl">Explore</header>
+            <ul
+              class="
+                text-gray-600
+                font-regular
+                grid grid-cols-1
+                text-xl
+                gap-y-3
+              "
+            >
+              <li>My Profile</li>
+              <li>Site Map</li>
+            </ul>
+          </div>
+          <div
+            class="
+              support
+              text-center
+              sm:text-left
+              flex flex-col
+              sm:block
+              space-y-3
+            "
+          >
+            <header class="font-medium text-2xl">Support</header>
+            <ul
+              class="
+                text-gray-600
+                font-regular
+                grid grid-cols-1
+                text-xl
+                gap-y-3
+              "
+            >
+              <li>FAQs</li>
+              <li>List your Property</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hidden sm:block border-b border-gray-300 w-full"></div>
+      <div
+        class="
+          sm:flex sm:justify-between
+          pt-2
+          sm:items-center
+          text-lg text-gray-800
+        "
+      >
+        <div class="flex flex-col sm:flex-row sm:space-x-64">
+          <div
+            class="
+              icons
+              flex
+              space-x-1
+              my-10
+              sm:my-0 sm:justify-left
+              justify-center
+            "
+          >
+            <div
+              class="
+                h-8
+                w-8
+                rounded-full
+                bg-blue-900
+                flex
+                justify-center
+                items-center
+              "
+            >
+              <i class="fab fa-facebook-square text-white"></i>
+            </div>
+            <div
+              class="
+                h-8
+                w-8
+                rounded-full
+                bg-blue-900
+                flex
+                justify-center
+                items-center
+              "
+            >
+              <i class="fab fa-instagram text-white"></i>
+            </div>
+            <div
+              class="
+                h-8
+                w-8
+                rounded-full
+                bg-blue-900
+                flex
+                justify-center
+                items-center
+              "
+            >
+              <i class="fab fa-twitter text-white"></i>
+            </div>
+          </div>
+          <ul
+            class="
+              privacy_n_site
+              text-center
+              flex
+              text-xl
+              justify-center
+              space-x-5
+              sm:pl-4
+            "
+          >
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Site Terms</a></li>
+          </ul>
+        </div>
+        <div class="sm:hidden border-b border-gray-300 w-full mt-3 mb-6"></div>
+        <div class="rights text-center text-xl pb-6">
+          @ 2021 Rent By Owner. all rights Reserved
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Slider start
+      let set_price_num = document.getElementById("set_price_num");
+
+      function on_add_price() {
+        let price_val = document.getElementById("price_val");
+        price_range = "৳" + sliderOne.value + " - ৳" + sliderTwo.value;
+        price_val.value = price_range;
+        set_price_num.classList.toggle("hidden");
+      }
+
+      function popup_range() {
+        set_price_num.classList.toggle("hidden");
+      }
+
+      let selector = document.getElementById("selector");
+      let selectValue = document.getElementById("selectValue");
+
+      window.onload = function () {
+        slideOne();
+        slideTwo();
+      };
+
+      let sliderOne = document.getElementById("slider-1");
+      let sliderTwo = document.getElementById("slider-2");
+      let displayValOne = document.getElementById("range1");
+      let displayValTwo = document.getElementById("range2");
+
+      let displayRangeOne = document.getElementById("show_range_val_1");
+      let displayRangeTwo = document.getElementById("show_range_val_2");
+
+      let minGap = 5;
+      let sliderTrack = document.querySelector(".slider-track");
+      let sliderMaxValue = document.getElementById("slider-1").max;
+
+      function slideOne() {
+        if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+          sliderOne.value = parseInt(sliderTwo.value) - minGap;
+        }
+        displayValOne.textContent = sliderOne.value;
+        displayRangeOne.textContent = sliderOne.value;
+      }
+
+      function slideTwo() {
+        if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+          sliderTwo.value = parseInt(sliderOne.value) + minGap;
+        }
+        displayValTwo.textContent = sliderTwo.value;
+        displayRangeTwo.textContent = sliderTwo.value;
+      }
+      // Slider End
+      let check_in = new Date().toISOString().split("T")[0];
+      document.getElementsByName("txtDate1")[0].setAttribute("min", check_in);
+
+      let check_out = new Date().toISOString().split("T")[0];
+      document.getElementsByName("txtDate2")[0].setAttribute("min", check_out);
+
+      let guest_size = 0;
+      let set_guest_num = document.getElementById("set_guest_num");
+
+      function decrement() {
+        if (guest_size == 0) {
+          document.getElementById("guest_size").innerText = guest_size;
+        } else {
+          guest_size -= 1;
+          document.getElementById("guest_size").innerText = guest_size;
+        }
+      }
+
+      function increment() {
+        guest_size += 1;
+        document.getElementById("guest_size").innerText = guest_size;
+      }
+
+      function on_add_guest() {
+        let guest_val = document.getElementById("guest_val");
+        guest_val.value = guest_size;
+        set_guest_num.classList.toggle("hidden");
+      }
+      function popup_guest() {
+        set_guest_num.classList.toggle("hidden");
+      }
+
+      function show_alert() {
+        let no_of_guests = document.getElementById("guest_val").value;
+        if (guest_size != 0) {
+          guest_size = no_of_guests;
+        }
+
+        let check_in = document.getElementById("txtDate1").value;
+        let check_out = document.getElementById("txtDate2").value;
+        let place = document.getElementById("search_val").value;
+
+        if (check_in < check_out) {
+          alert(
+            "Search: " +
+              place +
+              "\n" +
+              "Checkin: " +
+              check_in +
+              "\nCheckout: " +
+              check_out +
+              "\nGuest: " +
+              guest_size +
+              "\n" +
+              "Price range: " +
+              sliderOne.value +
+              " - " +
+              sliderTwo.value
+          );
+        } else {
+          alert("Sorry, we don't time travel :)");
+        }
+      }
+    </script>
   </body>
 </html>

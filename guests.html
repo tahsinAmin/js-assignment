@@ -136,11 +136,10 @@
 
       function show_alert() {
         let no_of_guests = document.getElementById("guest_val").value;
-        if (guest_size == 0) {
-          alert("Guest(s): " + 0 + "\n");
-        } else {
-          alert("Guest(s): " + no_of_guests + "\n");
+        if (guest_size != 0) {
+          guest_size = no_of_guests;
         }
+        alert("Guest(s): " + guest_size + "\n");
       }
     </script>
   </body>
