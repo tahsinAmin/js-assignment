@@ -29,7 +29,7 @@ body {
   position: relative;
   width: 100%;
   height: 100px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-top: 30px;
 }
 
@@ -136,4 +136,22 @@ input[type="range"]:active::-webkit-slider-thumb {
   bottom: -14px;
   left: 0;
   right: 0;
+}
+
+.bain {
+  width: 60%;
+  margin: 24% auto;
+  position: relative;
+}
+
+.selectBtn {
+  height: 40px;
+  width: 40px;
+  background-color: rgb(109, 98, 170);
+  border-radius: 20%;
+  position: absolute;
+}
+
+.slider-1::-webkit-slider-thumb {
+  position: relative;
 }
