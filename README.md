@@ -2,9 +2,11 @@
 
 ## 1. Searchbar
 
-## 2. Date Picker for Calendar
-
 ### Todos
+
+- [ ] See if it works with dummy data similar to the api
+
+## 2. Date Picker for Calendar
 
 - [ ] Hoteldatepicker
 - [x] Unable to choose invalid previous date in check in & check out
@@ -12,19 +14,16 @@
 
 ## 3. Guests (Range input for Price Range)
 
-### Todos
-
 - [x] Showing value in the disabled input.
 
 ## 4. Price Range (Multiple input Range Slider)
 
-### Todos
-
-- [ ] Multi Range Slider
+- [x] Multi Range Slider
+- [x] Showing the text of the price
+- [x] Show it in the default input
 - [ ] Showing the tooltip above
-- [ ] Showing the text of the price
 
-## 5. Heat Check (If possible)
+## 5. Optimization (If possible)
 
 - [ ] Make sure if guests div don't pop up if price range is showing.
 - [ ] Make it responsive
@@ -38,16 +37,4 @@
 
 - HTML5
 - [TailwindCSS](https://tailwindcss.com/)
-
-## Consideration
-
-- when using html calendar, they give a default calendar icon, so I need to remove mine.
-
-## Things I have learned:
-
-- Giving Text shadow
-
-## Future tasks if Possibility for Continuation:
-
-- last 4 images, when hover, shows the places' name from below and image goies above
-- Testimony about places making it slider if have time
+- Vanilla JS

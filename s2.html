@@ -27,7 +27,7 @@
         border-radius: 3px;
       }
       #slider::-webkit-slider-thumb {
-        -webkit-appearance: none;
+        /* -webkit-appearance: none; */
         width: 48px;
         height: 48px;
         cursor: pointer;
@@ -42,16 +42,6 @@
         left: 50%;
         transform: translateX(-50%);
         z-index: 2;
-      }
-
-      .selectBtn {
-        height: 48px;
-        width: 48px;
-        background-color: #fff;
-        background-position: center;
-        border-radius: 50%;
-        position: absolute;
-        bottom: 0;
       }
 
       #selectValue {
@@ -80,9 +70,8 @@
   </head>
   <body>
     <div class="main">
-      <input type="range" min="0" max="128749" value="50" id="slider" />
+      <input type="range" min="0" max="128749" value="0" id="slider" />
       <div id="selector">
-        <div class="selectBtn"></div>
         <div id="selectValue">64374</div>
       </div>
       <div id="progressBar"></div>

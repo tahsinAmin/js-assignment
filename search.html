@@ -5,14 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background: #644bff;
+        padding: 0 20px;
+      }
+    </style>
   </head>
   <body>
-    Search
+    <div class="wrapper">
+      <div class="search-input">
+        <input type="text" placeholder="Search..." />
+      </div>
+    </div>
     <script>
+      let data = [
+        {
+          id: 62061,
+          Name: "Community of Madrid, Spain",
+          Count: 2,
+          SlashName: "Spain/Madrid-vacation-rentals/g556/",
+        },
+        {
+          id: 62253,
+          Name: "Madrid, Community of Madrid, Spain",
+          Count: 1,
+          SlashName: "Spain/Madrid/Madrid-vacation-rentals/g1688/",
+        },
+      ];
+
       function fetchData() {
-        console.log(fetch("https://reqres.in/api/users"));
-        // console.log(fetch("https://www.vacationhomerentals.com/content/srp/saut?s=madrids"));
-        console.log("Start Fetch");
+        // console.log(fetch("https://reqres.in/api/users"));
+
+        fetch("https://www.vacationhomerentals.com/content/srp/saut?s=madrids")
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+          });
       }
       fetchData();
     </script>
