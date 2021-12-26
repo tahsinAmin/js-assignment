@@ -8,7 +8,7 @@
 
 - [ ] Hoteldatepicker
 - [x] Unable to choose invalid previous date in check in & check out
-- [ ] checkout date should be greater than check in date
+- [x] checkout date should be greater than check in date
 
 ## 2. Range niput for Price Range
 

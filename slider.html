@@ -11,19 +11,44 @@
   <body>
     <div class="wrapper">
       <p class="text-2xl font-semibold mb-4">
-        Price Range:
-        <span class="font-medium text-blue-500">৳0 - ৳100 + per night</span>
+        Price Range: ৳
+        <span class="font-medium text-blue-500" id="show_range_val_1"> 0 </span>
+        <span> &dash; </span>
+        ৳
+        <span class="font-medium text-blue-500" id="show_range_val_2">100</span>
+        + per night
       </p>
       <div class="values">
         <span id="range1"> 0 </span>
-        <span id="range1"> &dash; </span>
-        <span id="range2"> 100 </span>
+        <span> &dash; </span>
+        <span id="range2"> 128749 </span>
       </div>
       <div class="cont">
-        <div class="slider-track"></div>
-        <input type="range" min="0" max="100" value="30" id="slider-1" />
-        <input type="range" min="0" max="100" value="70" id="slider-2" />
+        <div class="slider-track bg-blue-300"></div>
+        <input
+          type="range"
+          min="0"
+          max="128749"
+          value="0"
+          id="slider-1"
+          oninput="slideOne()"
+        />
+        <input
+          type="range"
+          min="0"
+          max="128749"
+          value="128749"
+          id="slider-2"
+          oninput="slideTwo()"
+        />
+        <div class="bain">
+          <div class="selector">
+            <div class="selectBtn"></div>
+            <div id="selectValue"></div>
+          </div>
+        </div>
       </div>
     </div>
+    <script src="slider.js"></script>
   </body>
 </html>
