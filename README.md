@@ -23,6 +23,7 @@
 - [x] Show it in the default input
 - [x] Showing the tooltip above
 - [x] Make sure the min val is always smaller than the max value
+- [ ] Remove the zero
 
 ### Problems
 

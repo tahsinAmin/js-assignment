@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -13,6 +13,80 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      href="/hotel-datepicker-4.0.3/dist/css/hotel-datepicker.css"
+      rel="stylesheet"
+    />
+    <!-- Optional -->
+    <script src="/fecha-master/dist/fecha.min.js"></script>
+    <script src="/hotel-datepicker-4.0.3/dist/js/hotel-datepicker.min.js"></script>
+    <style>
+      .search_wrap {
+        max-width: 320px;
+      }
+      .search_wrap .search-input {
+        position: relative;
+        /* background: #fff; */
+        width: 100%;
+        /* border-radius: 5px; */
+        /* box-shadow: 0 1px 5px 3px rgba(0, 0, 0, 0.12); */
+      }
+
+      .search-input input {
+        /* height: 55px; */
+        width: 100%;
+        outline: none;
+        border: none;
+        /* border-radius: 5px; */
+        /* padding: 0 60px 0 20px; */
+        /* font-size: 18px; */
+        /* box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1); */
+      }
+
+      .search-input .icon {
+        /* height: 55px;
+        width: 55px;
+        line-height: 55px; */
+        position: absolute;
+        top: 0;
+        right: 0;
+        /* text-align: center; */
+        /* font-size: 20px; */
+        color: #1e00e4;
+        cursor: pointer;
+      }
+
+      .search-input .autocom-box {
+        padding: 0;
+        max-height: 290px;
+        overflow-y: auto;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .search-input.active .autocom-box {
+        padding: 10px 8px;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .autocom-box li {
+        list-style: none;
+        padding: 8px 12px;
+        width: 100%;
+        border-radius: 3px;
+        display: none;
+      }
+
+      .search-input.active .autocom-box li {
+        display: block;
+      }
+
+      .autocom-box li:hover {
+        background: #efefef;
+        cursor: pointer;
+      }
+    </style>
     <title>JS Assignment</title>
   </head>
   <body>
@@ -98,54 +172,21 @@
               "
             >
               <!-- Search -->
-              <div class="search flex items-center bg-white px-2">
-                <i class="fas fa-search text-gray-400 bg-white"></i>
-                <input
-                  type="text"
-                  placeholder="Search ..."
-                  class="px-1 rounded-lg text-black"
-                  id="search_val"
-                />
+              <div class="search_wrap flex items-center bg-white px-2">
+                <div class="search-input">
+                  <input type="text" placeholder="Search..." id="search_val" />
+                  <div class="autocom-box truncate"></div>
+                  <div class="icon"><i class="fas fa-search"></i></div>
+                </div>
               </div>
 
               <!-- Date -->
-              <div
-                class="
-                  flex
-                  items-center
-                  justify-center
-                  date_in
-                  bg-white
-                  border border-blue-400
-                "
-              >
-                <input
-                  type="date"
-                  id="txtDate1"
-                  class="px-1 text-black"
-                  required="Required"
-                  class="form-control"
-                  name="txtDate1"
-                />
-              </div>
-              <div
-                class="
-                  flex
-                  items-center
-                  justify-centerdate_out
-                  bg-white
-                  border border-blue-400
-                "
-              >
-                <input
-                  type="date"
-                  id="txtDate2"
-                  class="px-1 text-black"
-                  required="Required"
-                  class="form-control"
-                  name="txtDate2"
-                />
-              </div>
+              <input
+                id="input-id"
+                type="text"
+                class="border-2 p-2"
+                placeholder="Checkin > Checkout"
+              />
 
               <!-- Guests -->
               <div
@@ -1224,11 +1265,6 @@
         displayRangeTwo.textContent = sliderTwo.value;
       }
       // Slider End
-      let check_in = new Date().toISOString().split("T")[0];
-      document.getElementsByName("txtDate1")[0].setAttribute("min", check_in);
-
-      let check_out = new Date().toISOString().split("T")[0];
-      document.getElementsByName("txtDate2")[0].setAttribute("min", check_out);
 
       let guest_size = 0;
       let set_guest_num = document.getElementById("set_guest_num");
@@ -1256,37 +1292,38 @@
         set_guest_num.classList.toggle("hidden");
       }
 
+      let hdpkr = new HotelDatepicker(document.getElementById("input-id"));
+      let inputId = document.getElementById("input-id");
+
       function show_alert() {
+        let list = inputId.value.split(" ");
         let no_of_guests = document.getElementById("guest_val").value;
         if (guest_size != 0) {
           guest_size = no_of_guests;
         }
 
-        let check_in = document.getElementById("txtDate1").value;
-        let check_out = document.getElementById("txtDate2").value;
         let place = document.getElementById("search_val").value;
 
-        if (check_in < check_out) {
-          alert(
-            "Search: " +
-              place +
-              "\n" +
-              "Checkin: " +
-              check_in +
-              "\nCheckout: " +
-              check_out +
-              "\nGuest: " +
-              guest_size +
-              "\n" +
-              "Price range: " +
-              sliderOne.value +
-              " - " +
-              sliderTwo.value
-          );
-        } else {
-          alert("Sorry, we don't time travel :)");
-        }
+        alert(
+          "Search: " +
+            place +
+            "\n" +
+            "Checkin: " +
+            list[0] +
+            "\nCheckout: " +
+            list[2] +
+            "\nGuests: " +
+            guest_size +
+            "\n" +
+            "Price range: " +
+            sliderOne.value +
+            " - " +
+            sliderTwo.value
+        );
       }
     </script>
+
+    <script src="/js/search_script.js"></script>
+    <script src="/js/suggestions.js"></script>
   </body>
 </html>

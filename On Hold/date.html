@@ -32,7 +32,12 @@
           sm:space-y-0 sm:space-x-2
         "
       >
-        <input id="input-id" type="text" class="border-2 p-2" />
+        <input
+          id="input-id"
+          type="text"
+          class="border-2 p-2"
+          placeholder="Checkin > Checkout"
+        />
         <input
           type="button"
           value="Search"
@@ -42,7 +47,7 @@
       </div>
     </form>
     <script>
-      var hdpkr = new HotelDatepicker(document.getElementById("input-id"));
+      let hdpkr = new HotelDatepicker(document.getElementById("input-id"));
       let inputId = document.getElementById("input-id");
       function show_alert() {
         let list = inputId.value.split(" ");
