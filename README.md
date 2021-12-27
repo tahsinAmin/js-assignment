@@ -24,7 +24,7 @@
 - [x] Showing the tooltip above
 - [x] Make sure the min val is always smaller than the max value
 - [x] Min value should not be more than Max value.
-- [ ] Price Range design color to match with design
+- [x] Price Range design color to match with design
 
 ### Problems
 
@@ -32,11 +32,11 @@
 
 ## 5. Optimization (If possible)
 
-- [ ] Icons for hoteldatepicker.
+- [x] Icons for hoteldatepicker.
 - [x] successful alert leads to success page
 - [x] No input should give negative alert or pute required on all.
 - [x] Make sure if guests div don't pop up if price range is showing.
-- [ ] Make it responsive (Same input width, no space in between)
+- [x] Make it responsive (Same input width, no space in between)
 - [ ] Make eveything else disable or have an overlay when one of the divs pop up
 
 ### Problem
