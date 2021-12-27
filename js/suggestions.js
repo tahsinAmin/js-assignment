@@ -1,1 +1,1 @@
-let suggestions = ["Apple", "Banana", "Carrot", "Date"]
+let suggestions = ["Apple", "Banana", "Carrot", "Date", "How to .", "How to JS", ]

@@ -77,23 +77,35 @@
       ];
       let allString = "<ul>";
       let search = document.getElementById("search");
+
       search.onkeyup = (e) => {
-        console.log(e.target.value);
-        let filterList = data.filter((item) => {
-          if (item["Name"].toLocaleLowerCase().startsWith(e.target.value)) {
-            console.log(true);
-            allString += "<li>" + item["Name"] + "</li>";
-          }
+        let userData = e.target.value; // user enetered data
+        let emptyArray = data.filter(({ Name }) => {
+          console.log(Name);
+          return Name.toLocaleLowerCase().startsWith(
+            userData.toLocaleLowerCase()
+          );
+          // if (item["Name"].toLocaleLowerCase().startsWith(e.target.value)) {
+          //   console.log(true);
+          //   allString += "<li>" + item["Name"] + "</li>";
+          // }
         });
+        console.log(emptyArray);
+        emptyArray = emptyArray.map(({ Name }) => {
+          return (data = "<li>" + { Name } + "</li>");
+        });
+        console.log(emptyArray);
       };
 
       // let list = data.map((item) => {
       //   allString += "<li>" + item["Name"] + "</li>";
       //   return (data = "<li>" + item["Name"] + "</li>");
       // });
-      allString += "</ul>";
-      console.log(allString);
-      document.getElementById("emptydiv").innerHTML = allString;
+      // allString += "</ul>";
+      // console.log(allString);
+      // document.getElementById("emptydiv").innerHTML = allString;
     </script>
   </body>
 </html>
+
+<!-- First, take all the names fromt the json data -->
