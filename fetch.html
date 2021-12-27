@@ -12,7 +12,6 @@
     <script>
       // Response body is showing null
       function test() {
-        // console.log("Hello");
         fetch(
           "https://www.vacationhomerentals.com/content/srp/saut?s=Las%20vegas",
           {
@@ -26,7 +25,7 @@
       test();
 
       //   Sample Data
-      let data = [
+      let sample = [
         {
           id: 503358,
           Name: "Province of Ragusa, Sicily, Italy",
@@ -75,37 +74,35 @@
             "wales\/north-wales\/anglesey\/llanddeusant-vacation-rentals\/g100574074",
         },
       ];
+      let suggestions = sample.map((d) => d["Name"]);
+      // console.log(names);
+
       let allString = "<ul>";
       let search = document.getElementById("search");
-
+      let emptyArray = [];
       search.onkeyup = (e) => {
         let userData = e.target.value; // user enetered data
-        let emptyArray = data.filter(({ Name }) => {
-          console.log(Name);
-          return Name.toLocaleLowerCase().startsWith(
-            userData.toLocaleLowerCase()
-          );
-          // if (item["Name"].toLocaleLowerCase().startsWith(e.target.value)) {
-          //   console.log(true);
-          //   allString += "<li>" + item["Name"] + "</li>";
-          // }
+        emptyArray = suggestions.filter((data) => {
+          return data
+            .toLocaleLowerCase()
+            .startsWith(userData.toLocaleLowerCase());
         });
-        console.log(emptyArray);
-        emptyArray = emptyArray.map(({ Name }) => {
-          return (data = "<li>" + { Name } + "</li>");
-        });
-        console.log(emptyArray);
+        if (emptyArray.length !== 0) {
+          emptyArray = emptyArray.map((data) => {
+            return (data = "<li>" + data + "</li>");
+          });
+          console.log(emptyArray);
+          let list = emptyArray.map((item) => {
+            allString += item;
+            return;
+          });
+          allString += "</ul>";
+          // console.log(allString);
+          document.getElementById("emptydiv").innerHTML = allString;
+        } else {
+          document.getElementById("emptydiv").innerHTML = "";
+        }
       };
-
-      // let list = data.map((item) => {
-      //   allString += "<li>" + item["Name"] + "</li>";
-      //   return (data = "<li>" + item["Name"] + "</li>");
-      // });
-      // allString += "</ul>";
-      // console.log(allString);
-      // document.getElementById("emptydiv").innerHTML = allString;
     </script>
   </body>
 </html>
-
-<!-- First, take all the names fromt the json data -->

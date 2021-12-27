@@ -2,7 +2,7 @@
 
 ## 1. Searchbar
 
-- [ ] See if it works with dummy data similar to the api
+- [x] See if it works with dummy data similar to the api
 
 ### Problems
 
@@ -10,9 +10,7 @@
 
 ## 2. Date Picker for Calendar
 
-- [ ] Hoteldatepicker
-- [x] Unable to choose invalid previous date in check in & check out
-- [x] checkout date should be greater than check in date
+- [x] Hoteldatepicker
 
 ## 3. Guests (Range input for Price Range)
 
@@ -36,6 +34,7 @@
 - [ ] Make it responsive
 - [ ] Make eveything else disable or have an overlay when one of the divs pop up
 - [ ] If any error, then alert and refresh
+- [ ] use foreach in fetch.html
 
 ## About Us
 
