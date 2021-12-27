@@ -24,8 +24,7 @@
 - [x] Showing the tooltip above
 - [x] Make sure the min val is always smaller than the max value
 - [x] Min value should not be more than Max value.
-- [ ] Remove the zero
-- [ ] Bring the original Design
+- [ ] Price Range design color to match with design
 
 ### Problems
 
@@ -40,6 +39,10 @@
 - [ ] Make it responsive (Same input width, no space in between)
 - [ ] Make eveything else disable or have an overlay when one of the divs pop up
 
+### Problem
+
+- successful alert not leading to success page
+
 ## 6. Factorization
 
 - [x] search button act as a cursor
@@ -50,6 +53,7 @@
 
 ## Tools Used
 
-- HTML5
-- [TailwindCSS](https://tailwindcss.com/)
-- Vanilla JS
+- HTML5.
+- [TailwindCSS](https://tailwindcss.com/).
+- Vanilla JS.
+- Brain.?
