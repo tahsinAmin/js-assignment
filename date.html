@@ -13,6 +13,13 @@
       referrerpolicy="no-referrer"
     />
     <title>Date</title>
+    <link
+      href="/hotel-datepicker-4.0.3/dist/css/hotel-datepicker.css"
+      rel="stylesheet"
+    />
+    <!-- Optional -->
+    <script src="/fecha-master/dist/fecha.min.js"></script>
+    <script src="/hotel-datepicker-4.0.3/dist/js/hotel-datepicker.min.js"></script>
   </head>
   <body>
     <form action="">
@@ -25,7 +32,7 @@
           sm:space-y-0 sm:space-x-2
         "
       >
-        <div class="date_in bg-white rounded-lg border border-blue-400">
+        <!-- <div class="date_in bg-white rounded-lg border border-blue-400">
           <input
             type="date"
             id="txtDate1"
@@ -44,26 +51,22 @@
             class="form-control"
             name="txtDate2"
           />
-        </div>
-        <input type="button" value="Search" onclick="show_alert()" />
+        </div> -->
+        <input id="input-id" type="text" class="border-2 p-2" />
+        <input
+          type="button"
+          value="Search"
+          onclick="show_alert()"
+          placeholder="Check In > Check Out"
+        />
       </div>
     </form>
     <script>
-      let check_in = new Date().toISOString().split("T")[0];
-      document.getElementsByName("txtDate1")[0].setAttribute("min", check_in);
-
-      let check_out = new Date().toISOString().split("T")[0];
-      document.getElementsByName("txtDate2")[0].setAttribute("min", check_out);
-
+      var hdpkr = new HotelDatepicker(document.getElementById("input-id"));
+      let inputId = document.getElementById("input-id");
       function show_alert() {
-        let check_in = document.getElementById("txtDate1").value;
-        let check_out = document.getElementById("txtDate2").value;
-
-        if (check_in < check_out) {
-          alert("Check in: " + check_in + "\nCheck Out: " + check_out);
-        } else {
-          alert("Sorry, we don't time travel :)");
-        }
+        let list = inputId.value.split(" ");
+        alert("Checkin: " + list[0] + "\nCheckout: " + list[2]);
       }
     </script>
   </body>

@@ -2,9 +2,11 @@
 
 ## 1. Searchbar
 
-### Todos
-
 - [ ] See if it works with dummy data similar to the api
+
+### Problems
+
+- Response Body is showing null
 
 ## 2. Date Picker for Calendar
 

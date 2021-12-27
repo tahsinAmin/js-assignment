@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Slider - 1</title>
+  </head>
+  <body>
+    <div
+      class="price_range_add bg-white rounded-lg px-2 flex items-center"
+      onclick="popup_range()"
+    >
+      <input
+        type="text"
+        class="rounded-lg text-black pl-2"
+        placeholder="Price Range"
+        value=""
+        disabled=""
+        id="price_val"
+      />
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        ></path>
+      </svg>
+    </div>
+    <div
+      class="pop_up_price_range wrapper flex flex-col bg-white p-4"
+      id="set_price_num"
+    >
+      <div>
+        <p class="text-2xl font-semibold mb-4">
+          Price Range: ৳
+          <span class="font-medium text-blue-500" id="show_range_val_1">
+            0
+          </span>
+          <span> &dash; </span>
+          ৳
+          <span class="font-medium text-blue-500" id="show_range_val_2"
+            >100</span
+          >
+          + per night
+        </p>
+        <div class="values py-2 px-2">
+          <span id="range1" class="text-sm font-light"> 0 </span>
+          <span> &dash; </span>
+          <span id="range2" class="text-sm font-light"> 128749 </span>
+        </div>
+        <div class="cont">
+          <div class="slider-track bg-blue-300"></div>
+          <input
+            type="range"
+            min="0"
+            max="128749"
+            value="0"
+            id="slider-1"
+            oninput="slideOne()"
+          />
+          <div id="selector-1">
+            <div class="selectBtn-1"></div>
+            <div id="selectValue-1">0</div>
+          </div>
+
+          <input
+            type="range"
+            min="0"
+            max="128749"
+            value="128749"
+            id="slider-2"
+            oninput="slideTwo()"
+          />
+          <div id="selector-2">
+            <div class="selectBtn-2"></div>
+            <div id="selectValue-2">128749</div>
+          </div>
+        </div>
+      </div>
+      <div class="add_buttton flex justify-end">
+        <button
+          class="
+            bg-[#00CD92]
+            text-white
+            uppercase
+            shadow-lg
+            py-3
+            px-6
+            rounded-lg
+          "
+          onclick="on_add_price()"
+        >
+          ADD
+        </button>
+      </div>
+    </div>
+    <script>
+      let set_price_num = document.getElementById("set_price_num");
+
+      function on_add_price() {
+        let price_val = document.getElementById("price_val");
+        price_range = "৳" + sliderOne.value + " - ৳" + sliderTwo.value;
+        price_val.value = price_range;
+        set_price_num.classList.toggle("hidden");
+      }
+
+      function popup_range() {
+        set_price_num.classList.toggle("hidden");
+      }
+
+      window.onload = function () {
+        slideOne();
+        slideTwo();
+      };
+
+      let sliderOne = document.getElementById("slider-1");
+      let sliderTwo = document.getElementById("slider-2");
+
+      let selectorOne = document.getElementById("selector-1");
+      let selectValueOne = document.getElementById("selectValue-1");
+
+      let selectorTwo = document.getElementById("selector-2");
+      let selectValueTwo = document.getElementById("selectValue-2");
+
+      sliderOne.oninput = function () {
+        slideOne();
+        selectorOne.style.left = (this.value / 128749) * 100 + "%";
+        selectValueOne.innerHTML = sliderOne.value;
+      };
+
+      sliderTwo.oninput = function () {
+        slideTwo();
+        selectorTwo.style.left = (this.value / 128749) * 100 + "%";
+        selectValueTwo.innerHTML = sliderTwo.value;
+      };
+
+      let displayValOne = document.getElementById("range1");
+      let displayValTwo = document.getElementById("range2");
+
+      let displayRangeOne = document.getElementById("show_range_val_1");
+      let displayRangeTwo = document.getElementById("show_range_val_2");
+
+      let minGap = 5;
+      let sliderTrack = document.querySelector(".slider-track");
+      let sliderMaxValue = document.getElementById("slider-1").max;
+
+      function slideOne() {
+        if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+          sliderOne.value = parseInt(sliderTwo.value) - minGap;
+        }
+        displayValOne.textContent = sliderOne.value;
+        displayRangeOne.textContent = sliderOne.value;
+      }
+
+      function slideTwo() {
+        if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
+          sliderTwo.value = parseInt(sliderOne.value) + minGap;
+        }
+        displayValTwo.textContent = sliderTwo.value;
+        displayRangeTwo.textContent = sliderTwo.value;
+      }
+    </script>
+  </body>
+</html>
