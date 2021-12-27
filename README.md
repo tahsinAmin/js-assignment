@@ -23,7 +23,11 @@
 - [x] Multi Range Slider
 - [x] Showing the text of the price
 - [x] Show it in the default input
-- [ ] Showing the tooltip above
+- [x] Showing the tooltip above
+
+### Problems
+
+- Double Range Slider doesn't work in Firefox (UBUNTU OS)
 
 ## 5. Optimization (If possible)
 

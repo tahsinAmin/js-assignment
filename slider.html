@@ -8,6 +8,7 @@
       content="width=
     , initial-scale=1.0"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
       *,
       *:before,
@@ -39,7 +40,7 @@
         border: 1px solid black;
         margin-top: 30px;
       }
-      input[type="range"] {
+      /* input[type="range"] {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -51,7 +52,7 @@
         bottom: 0;
         background-color: transparent;
         pointer-events: none;
-      }
+      } */
 
       .slider-track {
         width: 100%;
@@ -117,9 +118,49 @@
     <div class="wrapper">
       <div class="cont">
         <div class="slider-track"></div>
-        <input type="range" min="0" max="100" value="30" id="slider-1" />
-        <input type="range" min="0" max="100" value="70" id="slider-2" />
+        <div class="flex flex-col">
+          <div class="flex space-x-1">
+            <span>Min Value: </span>
+            <input type="range" min="0" max="128749" value="0" id="slider-1" />
+            <span id="valMin">0</span>
+          </div>
+          <div class="flex space-x-1">
+            <span>Max Value: </span>
+            <input
+              type="range"
+              min="0"
+              max="128749"
+              value="128749"
+              id="slider-2"
+            />
+            <span id="valMax">128749</span>
+          </div>
+        </div>
       </div>
     </div>
+    <script>
+      let sliderOne = document.getElementById("slider-1");
+      let sliderTwo = document.getElementById("slider-2");
+      console.log(sliderOne.value, sliderTwo.value);
+
+      let valMin = document.getElementById("valMin");
+      let valMax = document.getElementById("valMax");
+
+      sliderOne.oninput = function () {
+        slideOne();
+        // selectorOne.style.left = (this.value / 128749) * 100 + "%";
+        valMin.innerHTML = sliderOne.value;
+      };
+
+      function slideOne() {
+        sliderOne.value = parseInt(sliderTwo.value);
+        valMin.textContent = sliderOne.value;
+        // displayValOne.textContent = sliderOne.value;
+        // displayRangeOne.textContent = sliderOne.value;
+      }
+
+      // valMin.innerHTML = sliderOne.value();
+      // valMax.innerHTML = sliderTwo.value();
+    </script>
   </body>
 </html>

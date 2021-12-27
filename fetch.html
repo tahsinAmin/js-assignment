@@ -7,11 +7,12 @@
     <title>Fetch Demo</title>
   </head>
   <body>
-    Heloo
+    <input type="text" id="search" />
+    <div id="emptydiv"></div>
     <script>
       // Response body is showing null
       function test() {
-        console.log("Hello");
+        // console.log("Hello");
         fetch(
           "https://www.vacationhomerentals.com/content/srp/saut?s=Las%20vegas",
           {
@@ -74,13 +75,25 @@
             "wales\/north-wales\/anglesey\/llanddeusant-vacation-rentals\/g100574074",
         },
       ];
+      let allString = "<ul>";
+      let search = document.getElementById("search");
+      search.onkeyup = (e) => {
+        console.log(e.target.value);
+        let filterList = data.filter((item) => {
+          if (item["Name"].toLocaleLowerCase().startsWith(e.target.value)) {
+            console.log(true);
+            allString += "<li>" + item["Name"] + "</li>";
+          }
+        });
+      };
 
-      let list = data.map((item) => {
-        console.log(item["Name"]);
-        return {
-            `<li>${item["Name"]}</li>`
-        };
-      });
+      // let list = data.map((item) => {
+      //   allString += "<li>" + item["Name"] + "</li>";
+      //   return (data = "<li>" + item["Name"] + "</li>");
+      // });
+      allString += "</ul>";
+      console.log(allString);
+      document.getElementById("emptydiv").innerHTML = allString;
     </script>
   </body>
 </html>

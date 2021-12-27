@@ -1,0 +1,1 @@
+let suggestions = ["Apple", "Banana", "Carrot", "Date"]

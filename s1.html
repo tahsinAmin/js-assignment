@@ -80,6 +80,7 @@
             value="128749"
             id="slider-2"
             oninput="slideTwo()"
+            ondrag="run()"
           />
           <div id="selector-2">
             <div class="selectBtn-2"></div>
@@ -116,6 +117,12 @@
 
       function popup_range() {
         set_price_num.classList.toggle("hidden");
+      }
+
+      function run() {
+        console.log("Clicked");
+        slideOne();
+        slideTwo();
       }
 
       window.onload = function () {
