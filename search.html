@@ -60,11 +60,16 @@
         cursor: pointer;
       }
       .search-input .autocom-box {
-        /* padding: 10px 8px; */
+        padding: 0;
         max-height: 290px;
         overflow-y: auto;
         opacity: 0;
         pointer-events: none;
+      }
+      .search-input.active .autocom-box {
+        padding: 10px 8px;
+        opacity: 1;
+        pointer-events: auto;
       }
       .autocom-box li {
         list-style: none;
@@ -72,6 +77,10 @@
         width: 100%;
         border-radius: 3px;
         display: none;
+      }
+
+      .search-input.active .autocom-box li {
+        display: block;
       }
 
       .autocom-box li:hover {

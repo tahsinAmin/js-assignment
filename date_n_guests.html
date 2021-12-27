@@ -22,25 +22,37 @@
     <script src="/hotel-datepicker-4.0.3/dist/js/hotel-datepicker.min.js"></script>
   </head>
   <body>
-    <form action="">
+    <main class="max-w-7xl mx-auto">
       <div
-        class="
-          mx-auto
-          flex flex-col
-          sm:flex-row
-          space-y-2
-          sm:space-y-0 sm:space-x-2
-        "
+        class="hero flex h-[645px] bg-[url('img/hero.jpg')] bg-cover bg-center"
       >
-        <input id="input-id" type="text" class="border-2 p-2" />
-        <input
-          type="button"
-          value="Search"
-          onclick="show_alert()"
-          placeholder="Check In > Check Out"
-        />
+        <form action="" class="m-auto">
+          <div
+            class="
+              mx-auto
+              flex flex-col
+              sm:flex-row
+              space-y-2
+              sm:space-y-0 sm:space-x-2
+            "
+          >
+            <input
+              id="input-id"
+              type="text"
+              class="border-2 p-2"
+              placeholder="Check In > Check Out"
+            />
+            <input
+              type="button"
+              class="border-2 shadow bg-[#00CD92]"
+              value="Search"
+              onclick="show_alert()"
+            />
+          </div>
+        </form>
       </div>
-    </form>
+    </main>
+
     <script>
       var hdpkr = new HotelDatepicker(document.getElementById("input-id"));
       let inputId = document.getElementById("input-id");
