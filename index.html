@@ -21,9 +21,6 @@
     <script src="/fecha-master/dist/fecha.min.js"></script>
     <script src="/hotel-datepicker-4.0.3/dist/js/hotel-datepicker.min.js"></script>
     <style>
-      .search_wrap {
-        max-width: 320px;
-      }
       .search_wrap .search-input {
         position: relative;
         /* background: #fff; */
@@ -172,9 +169,26 @@
               "
             >
               <!-- Search -->
-              <div class="search_wrap flex items-center bg-white px-2">
+              <div
+                class="
+                  search_wrap
+                  p-2
+                  sm:px-2
+                  w-full
+                  mx-auto
+                  sm:max-w-[320px]
+                  flex
+                  items-center
+                  bg-white
+                "
+              >
                 <div class="search-input">
-                  <input type="text" placeholder="Search..." id="search_val" />
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    id="search_val"
+                    required
+                  />
                   <div class="autocom-box truncate"></div>
                   <div class="icon"><i class="fas fa-search"></i></div>
                 </div>
@@ -186,6 +200,7 @@
                 type="text"
                 class="border-2 p-2"
                 placeholder="Checkin > Checkout"
+                required
               />
 
               <!-- Guests -->
@@ -207,14 +222,7 @@
 
               <!-- Price Range -->
               <div
-                class="
-                  price_range_add
-                  bg-white
-                  rounded-lg
-                  px-2
-                  flex
-                  items-center
-                "
+                class="price_range_add bg-white px-2 flex items-center"
                 onclick="popup_range()"
               >
                 <input
@@ -229,9 +237,9 @@
               </div>
 
               <input
-                type="button"
+                type="submit"
                 value="Search"
-                class="bg-white border p-2"
+                class="bg-white cursor-pointer border p-2"
                 onclick="show_alert()"
               />
             </div>
@@ -310,38 +318,43 @@
                 <span> &dash; </span>
                 ৳
                 <span class="font-medium text-blue-500" id="show_range_val_2"
-                  >100</span
+                  >128749</span
                 >
                 + per night
               </p>
-              <div class="values">
-                <span id="range1"> 0 </span>
-                <span> &dash; </span>
-                <span id="range2"> 128749 </span>
-              </div>
               <div class="cont">
                 <div class="slider-track bg-blue-300"></div>
-                <input
-                  type="range"
-                  min="0"
-                  max="128749"
-                  value="0"
-                  id="slider-1"
-                  oninput="slideOne()"
-                />
+                <div class="flex space-x-1">
+                  <span>Min Value: </span>
+                  <input
+                    type="range"
+                    min="0"
+                    max="128749"
+                    value="0"
+                    id="slider-1"
+                    oninput="slideOne()"
+                  />
+                  <span id="range1"> 0 </span>
+                </div>
+
                 <div id="selector-1">
                   <!-- <div class="selectBtn-1"></div> -->
                   <div id="selectValue-1">0</div>
                 </div>
 
-                <input
-                  type="range"
-                  min="0"
-                  max="128749"
-                  value="128749"
-                  id="slider-2"
-                  oninput="slideTwo()"
-                />
+                <div class="flex space-x-1">
+                  <span>Max Value: </span>
+                  <input
+                    type="range"
+                    min="0"
+                    max="128749"
+                    value="128749"
+                    id="slider-2"
+                    oninput="slideTwo()"
+                  />
+                  <span id="range2"> 128749 </span>
+                </div>
+
                 <!-- <div class="bain">
             <div class="selector">
               <div class="selectBtn"></div>
@@ -1227,6 +1240,7 @@
 
       function popup_range() {
         set_price_num.classList.toggle("hidden");
+        set_guest_num.classList.add("hidden");
       }
 
       let selector = document.getElementById("selector");
@@ -1288,8 +1302,10 @@
         guest_val.value = guest_size;
         set_guest_num.classList.toggle("hidden");
       }
+
       function popup_guest() {
         set_guest_num.classList.toggle("hidden");
+        set_price_num.classList.add("hidden");
       }
 
       let hdpkr = new HotelDatepicker(document.getElementById("input-id"));
@@ -1304,22 +1320,29 @@
 
         let place = document.getElementById("search_val").value;
 
-        alert(
-          "Search: " +
-            place +
-            "\n" +
-            "Checkin: " +
-            list[0] +
-            "\nCheckout: " +
-            list[2] +
-            "\nGuests: " +
-            guest_size +
-            "\n" +
-            "Price range: " +
-            sliderOne.value +
-            " - " +
-            sliderTwo.value
-        );
+        if (place == "" || !inputId.value) {
+          alert(
+            "Dear User, \nIt seems youhave not given the checkin date or the destination.\n\nPlease try again."
+          );
+        } else {
+          alert(
+            "Search: " +
+              place +
+              "\n" +
+              "Checkin: " +
+              list[0] +
+              "\nCheckout: " +
+              list[2] +
+              "\nGuests: " +
+              guest_size +
+              "\n" +
+              "Price range: " +
+              sliderOne.value +
+              " - " +
+              sliderTwo.value
+          );
+          window.location.href = "slider.html";
+        }
       }
     </script>
 
