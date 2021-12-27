@@ -35,7 +35,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        color: #1e00e4;
+        color: #00cd92;
         cursor: pointer;
       }
 
@@ -150,7 +150,7 @@
                 mx-auto
                 flex flex-col
                 sm:flex-row
-                space-y-2
+                space-y-1
                 sm:space-y-0 sm:space-x-2
               "
             >
@@ -181,23 +181,52 @@
               </div>
 
               <!-- Date -->
-              <input
-                id="input-id"
-                type="text"
-                class="border-2 p-2"
-                placeholder="Checkin > Checkout"
-                required
-              />
+              <div class="flex bg-white items-center">
+                <svg
+                  class="w-6 h-6 text-[#00CD92] pl-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <input
+                  id="input-id"
+                  type="text"
+                  class="border-2 p-2"
+                  placeholder="Checkin > Checkout"
+                  required
+                />
+              </div>
 
               <!-- Guests -->
               <div
                 class="guests_add bg-white px-2 flex items-center"
                 onclick="popup_guest()"
               >
-                <i class="fas fa-users text-gray-400 bg-white"></i>
+                <svg
+                  class="w-6 h-6 bg-white text-[#00CD92] pl-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                  ></path>
+                </svg>
                 <input
                   type="number"
-                  class="text-black w-[70px] pl-2"
+                  class="text-black w-[70px] pl-2 p-2 sm:px-2"
                   placeholder="Guests"
                   value=""
                   disabled=""
@@ -213,7 +242,7 @@
               >
                 <input
                   type="text"
-                  class="text-black pl-2"
+                  class="text-black pl-2 p-2 sm:px-2"
                   placeholder="Price Range"
                   value=""
                   disabled=""
@@ -225,7 +254,18 @@
               <input
                 type="submit"
                 value="Search"
-                class="bg-white cursor-pointer border p-2"
+                class="
+                  bg-[#00cd92]
+                  text-white
+                  rounded-lg
+                  cursor-pointer
+                  border
+                  py-2
+                  px-4
+                  text-xl
+                  font-light
+                  hover:transform hover:scale-105
+                "
                 onclick="show_alert()"
               />
             </div>
@@ -296,16 +336,12 @@
             id="set_price_num"
           >
             <div>
-              <p class="text-2xl font-semibold mb-4">
-                Price Range: ৳
-                <span class="font-medium text-blue-500" id="show_range_val_1">
-                  0
-                </span>
+              <p class="text-xl font-semibold mb-4 text-[#00CD92]">
+                <span class="text-gray-600">Price Range: </span> ৳
+                <span class="font-medium" id="show_range_val_1"> 0 </span>
                 <span> &dash; </span>
                 ৳
-                <span class="font-medium text-blue-500" id="show_range_val_2"
-                  >128749</span
-                >
+                <span class="font-medium" id="show_range_val_2">128749</span>
                 + per night
               </p>
               <div class="cont">
@@ -600,7 +636,20 @@
               </a>
             </div>
             <div class="flex flex-col justify-end">
-              <i class="fas fa-arrow-right text-white text-4xl"></i>
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                ></path>
+              </svg>
             </div>
           </div>
         </div>
@@ -622,185 +671,197 @@
           <ul class="flex flex-col space-y-2">
             <li class="text-[#00CD92] flex justify-between">
               <p>Alabama</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Arizona</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Beaches</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>California</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Florida</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Georgia</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Hawaii</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92]">
               <p>Hiking</p>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Maine</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Maryland</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Massachusetts</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92]">
               <p>Museums</p>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Oregon</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92]">
               <p>Parks</p>
@@ -813,51 +874,54 @@
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>South Carolina</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Tennessee</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92] flex justify-between">
               <p>Texas</p>
-              <span
-                class="
-                  h-6
-                  w-6
-                  border border-[#00CD92] border-2
-                  rounded-full
-                  flex
-                  items-center
-                  justify-center
-                "
+              <svg
+                class="w-6 h-6 text-[#00CD92]"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <i class="fas fa-chevron-down fa-xs"></i>
-              </span>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"
+                ></path>
+              </svg>
             </li>
             <li class="text-[#00CD92]">
               <p>Things To do</p>
