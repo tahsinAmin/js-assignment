@@ -23,7 +23,9 @@
 - [x] Show it in the default input
 - [x] Showing the tooltip above
 - [x] Make sure the min val is always smaller than the max value
+- [x] Min value should not be more than Max value.
 - [ ] Remove the zero
+- [ ] Bring the original Design
 
 ### Problems
 
@@ -31,11 +33,16 @@
 
 ## 5. Optimization (If possible)
 
-- [ ] Make sure if guests div don't pop up if price range is showing.
-- [ ] Make it responsive
+- [ ] Icons for hoteldatepicker.
+- [x] successful alert leads to success page
+- [x] No input should give negative alert or pute required on all.
+- [x] Make sure if guests div don't pop up if price range is showing.
+- [ ] Make it responsive (Same input width, no space in between)
 - [ ] Make eveything else disable or have an overlay when one of the divs pop up
-- [ ] If any error, then alert and refresh
-- [ ] use foreach in fetch.html
+
+## 6. Factorization
+
+- [x] search button act as a cursor
 
 ## About Us
 
